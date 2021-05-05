@@ -1,0 +1,9 @@
+/.idea
+/.env
+/*.log
+docker/mysql
+docker/logs
+/.htaccess
+/license.txt
+/readme.html
+/data/
