@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.4-fpm
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
@@ -39,7 +39,7 @@ RUN docker-php-ext-enable \
 #    redis
 
 # Configure GD library
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
 # Enable some php-exts
 RUN docker-php-ext-install \
@@ -48,15 +48,18 @@ RUN docker-php-ext-install \
 #    iconv \
 #    mbstring \
      mysqli \
-     zip \
 #    phar \
 #    posix \
 #    soap \
 #    tokenizer \
     gettext \
-#    pdo_mysql \
+    pdo_mysql \
     gd
 
+RUN apt-get install -y \
+        libzip-dev \
+        zip \
+  && docker-php-ext-install zip
 # Install mailhog/mhsendmail
 RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64
 RUN chmod +x mhsendmail_linux_amd64
