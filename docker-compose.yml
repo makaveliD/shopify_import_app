@@ -43,6 +43,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
 
+  node:
+    image: jujhars13/docker-node-npm-bower-gulp
+    volumes:
+      - ./app:/var/www/html
+    command: tail -f /dev/null
+
   adminer:
     image: adminer
     environment:

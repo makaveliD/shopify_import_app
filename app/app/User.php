@@ -29,4 +29,19 @@ class User extends Authenticatable implements IShopModel
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function settings()
+    {
+        return $this->hasOne('App\Settings')->withDefault(function ($settings, $user) {
+
+            $settings->fill([
+                'checkbox_rro_login' => '',
+                'checkbox_rro_password' => '',
+                'checkbox_rro_cashbox_key' => '',
+                'checkbox_status' => true,
+                'checkbox_rro_is_dev' => true,
+            ]);
+            $user->settings()->save($settings);
+        });
+    }
 }

@@ -1,22 +1,19 @@
-@extends('shopify-app::layouts.default')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <title>Polaris Demo</title>
+</head>
+<body>
+<div id="app"></div>
 
-@section('content')
-    <!-- You are: (shop domain name) -->
-    <p>You are: {{ Auth::user()->name }}</p>
-@endsection
+<input type="hidden" id="apiKey" value="{{ config('shopify-app.api_key') }}">
+<input type="hidden" id="shopOrigin" value="{{ Auth::user()->name }}">
 
-@section('scripts')
-    @parent
+<script src="{{asset('js/app.js')}}"></script>
 
-    <script type="text/javascript">
-        var AppBridge = window['app-bridge'];
-        var actions = AppBridge.actions;
-        var TitleBar = actions.TitleBar;
-        var Button = actions.Button;
-        var Redirect = actions.Redirect;
-        var titleBarOptions = {
-            title: 'Welcome',
-        };
-        var myTitleBar = TitleBar.create(app, titleBarOptions);
-    </script>
-@endsection
+</body>
+</html>
