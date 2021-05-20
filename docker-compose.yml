@@ -46,8 +46,10 @@ services:
   node:
     image: jujhars13/docker-node-npm-bower-gulp
     volumes:
-      - ./app:/var/www/html
+      - ./app:/data
     command: tail -f /dev/null
+
+
 
   adminer:
     image: adminer

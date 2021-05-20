@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\SettingsController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,15 +10,38 @@ use App\Http\Controllers\SettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', function () {
-    $shop = Auth::user();
-    $shopApi = $shop->api()->rest('GET', '/admin/api/unstable/orders.json');
-    dd($shopApi);
-    exit();
+    return view('welcome');
+})->middleware(['auth.shopify']);
+Route::fallback(function () {
     return view('welcome');
 })->middleware(['auth.shopify'])->name('home');
-Route::get('/settings', [SettingsController::class, 'index'])->middleware(['auth.shopify'])->name('home');
-Route::post('/settings/update',
-    [SettingsController::class, 'updateSettings'])->middleware(['auth.shopify'])->name('home');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify']);
+//Route::get('/settings', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/orders', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/order/{id}', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/order/', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/checkbox', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/checkbox/get_shift_status', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/checkbox/create_cashier_shift', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//Route::get('/checkbox/close_cashier_shift', function () {
+//    return view('welcome');
+//})->middleware(['auth.shopify'])->name('home');
+//

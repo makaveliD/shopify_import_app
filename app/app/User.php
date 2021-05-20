@@ -44,4 +44,11 @@ class User extends Authenticatable implements IShopModel
             $user->settings()->save($settings);
         });
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
+
 }

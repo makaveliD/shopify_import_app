@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\CheckboxController;
+use App\Library\Checkbox;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -25,6 +27,12 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    public function shouldDiscoverEvents()
+    {
+        return true;
+    }
+
     public function boot()
     {
         parent::boot();

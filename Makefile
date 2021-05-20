@@ -23,3 +23,7 @@ db-import:
 
 db-export:
 	docker-compose exec mysql /bin/bash -c 'mysqldump -uroot -proot localhost > /database-dump/localhost.sql'
+
+node-start:
+		docker-compose exec node /bin/bash -c "npm run watch-poll"
+
