@@ -10,38 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\ImportProductController;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 })->middleware(['auth.shopify']);
-Route::fallback(function () {
-    return view('welcome');
-})->middleware(['auth.shopify'])->name('home');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify']);
-//Route::get('/settings', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/orders', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/order/{id}', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/order/', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/checkbox', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/checkbox/get_shift_status', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/checkbox/create_cashier_shift', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//Route::get('/checkbox/close_cashier_shift', function () {
-//    return view('welcome');
-//})->middleware(['auth.shopify'])->name('home');
-//
+Route::post('/import_from_csv',[ImportProductController::class, 'importFromCsv'])->middleware(['auth.shopify']);
+

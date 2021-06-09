@@ -124,7 +124,7 @@ return [
     |
     */
 
-    'app_name' => env('SHOPIFY_APP_NAME', 'local_app'),
+    'app_name' => env('SHOPIFY_APP_NAME', 'importer'),
 
     /*
     |--------------------------------------------------------------------------
@@ -137,7 +137,7 @@ return [
     |
     */
 
-    'api_version' => env('SHOPIFY_API_VERSION', '2020-01'),
+    'api_version' => env('SHOPIFY_API_VERSION', '2021-04'),
 
     /*
     |--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'api_key' => env('SHOPIFY_API_KEY', 'ce12ed5663acbcc311d471b52ae898e2'),
+    'api_key' => env('SHOPIFY_API_KEY', '0f0ae9339f8bbf6d22c9b3e03d618f93'),
 
     /*
     |--------------------------------------------------------------------------
@@ -159,7 +159,7 @@ return [
     |
     */
 
-    'api_secret' => env('SHOPIFY_API_SECRET', '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'),
+    'api_secret' => env('SHOPIFY_API_SECRET', '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'),
 
     /*
     |--------------------------------------------------------------------------
@@ -170,7 +170,7 @@ return [
     |
     */
 
-    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_orders,read_products'),
+    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products'),
 
     /*
     |--------------------------------------------------------------------------

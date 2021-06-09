@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\CsvParserServiceProvider;
+
 return [
 
     /*
@@ -174,8 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\CheckboxServiceProvider::class,
-
+	    CsvParserServiceProvider::class
     ],
 
     /*
